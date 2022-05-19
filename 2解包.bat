@@ -1,0 +1,1 @@
+python typora.py "D:\Typora\resources\app.asar" out\app\

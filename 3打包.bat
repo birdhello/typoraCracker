@@ -1,0 +1,1 @@
+python typora.py -u out\app\dec_app "D:\Typora\resources"
