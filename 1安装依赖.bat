@@ -1,1 +1,1 @@
-pip install -r requirements.txt
+D:\python\3.10.5150.0\Scripts\pip install -r requirements.txt

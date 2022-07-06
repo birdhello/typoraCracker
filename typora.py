@@ -53,10 +53,11 @@ def extractWdec(asarPath, path, prettify):
     # try to create empty dir to save extract files
     path = pjoin(path, "tmp_app")
     _mkdir(path)
-    log.info(f"extract asar file: {asarPath}")
-    # extract app.asar to {path}/*
-    extract_asar(asarPath, path)
-    log.success(f"extract ended.")
+    if asarPath != '':
+        log.info(f"extract asar file: {asarPath}")
+        # extract app.asar to {path}/*
+        extract_asar(asarPath, path)
+        log.success(f"extract ended.")
 
     log.info(f"read Directory: {path}")
     # construct the save directory {pathRoot}/dec_app
@@ -111,6 +112,7 @@ def packWenc(path, outPath, compress):
 
     for name in fileArr:
         fpath = pjoin(path, name)
+        log.info(fpath)
         if isdir(fpath):
             log.error("TODO: found folder")
             raise IsADirectoryError
@@ -142,7 +144,13 @@ def main():
                            const=True, default=False,
                            help='enabled prettify/compress (default: disabled)')
     args = argParser.parse_args()
-
+    log.info(
+        "\nargs.asarPath: " + args.asarPath +
+        "\nargs.dirPath: " + args.dirPath +
+        "\nargs.format: " + str(args.format) +
+        "\nargs.mode: " + str(args.mode) +
+        ""
+    )
     args.mode(args.asarPath, args.dirPath, args.format)
     log.success("Done!")
 

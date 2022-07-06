@@ -1,1 +1,1 @@
-python typora.py "D:\Typora\resources\app.asar" out\app\
+D:\python\3.10.5150.0\python.exe typora.py "D:\Typora\resources\app.asar" out\app\
